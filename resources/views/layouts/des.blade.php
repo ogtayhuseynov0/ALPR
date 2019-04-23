@@ -51,7 +51,7 @@
             @endauth
         </ul>
 
-        <a id="logo-container" href="#" class="brand-logo black-text"><b>ALPR</b></a>
+        <a id="logo-container" href="#" class="brand-logo black-text">  <img src="{{asset('images/logo96black.png')}}" alt="" class="" style=" padding-top: 8%"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li class=""><a href="/">Home</a></li>
             @auth

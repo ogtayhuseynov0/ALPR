@@ -62,7 +62,9 @@
                     @endauth
                 </ul>
 
-                <a id="logo-container" href="#" class="brand-logo black-text"><b>ALPR</b></a>
+                <a id="logo-container" href="#" class="brand-logo black-text">
+                    <img src="{{asset('images/logo96black.png')}}" alt="" class="" style=" padding-top: 8%">
+                </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li class="activem"><a href="/">Home</a></li>
                     @auth
@@ -89,15 +91,20 @@
 </div>
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
-        <div class="container">
+        <div class="container" >
             <br><br>
-            <h1 class="header center white-text">ALPR</h1>
-            <div class="row center">
-                <h5 class="header col s12 light white-text">Automatic Licence Plate Recognition Platform</h5>
+            <div class="row center" style="background: rgba(0, 0, 0, 0.4);">
+                <h1 class="header center white-text">ALPR</h1>
+                <h5 class="header col s12 right white-text">
+                    Automatic Licence Plate Recognition Platform.
+                </h5>
+                {{--<h5 class="header col s12 light white-text">Automatic Licence Plate Recognition Platform</h5>--}}
             </div>
-            <div class="row center">
-                <a href="" class="btn-large waves-effect waves-light">Register</a>
-            </div>
+            @guest
+                <div class="row center">
+                    <a href="" class="btn-large waves-effect waves-light">Register</a>
+                </div>
+            @endguest
             <br><br>
 
         </div>
@@ -108,7 +115,7 @@
 
 <div class="container" id="team">
     <div class="section ">
-        <h4 class="center">Team</h4>
+        <h4 class="center"><b>Team</b></h4>
         <!--   Icon Section   -->
         <div class="row">
             <div class="col s12 m3">
@@ -132,7 +139,7 @@
                     <div class="card-content ">
                         <div class="icon-block">
                             <div class="background center ">
-                                <img src="{{asset('/images/oktay.jpg')}}" class="circle rounded">
+                                <img src="{{asset('/images/nijat.jpg')}}" class="circle rounded">
                                 <h6 class="name"><b>Nicat Hamidov</b></h6>
                                 {{--<h4 class="center "><i class="material-icons">flip_to_back</i></h4>--}}
                                 <span class="center">Frontend Developer </span>
@@ -148,7 +155,7 @@
                     <div class="card-content ">
                         <div class="icon-block">
                             <div class="background center ">
-                                <img src="{{asset('/images/oktay.jpg')}}" class="circle rounded">
+                                <img src="{{asset('/images/noh.jpg')}}" class="circle rounded">
                                 <h6 class="name"><b>Nihad Atakishiyev</b></h6>
                                 {{--<h4 class="center "><i class="material-icons">flip_to_back</i></h4>--}}
                                 <span class="center">Backend Developer </span>
@@ -163,10 +170,10 @@
                     <div class="card-content ">
                         <div class="icon-block">
                             <div class="background center ">
-                                <img src="{{asset('/images/oktay.jpg')}}" class="circle rounded">
+                                <img src="{{asset('/images/dvd.jpg')}}" class="circle rounded">
                                 <h6 class="name"><b>Davud Ismayilov</b></h6>
                                 {{--<h4 class="center "><i class="material-icons">flip_to_back</i></h4>--}}
-                                <span class="center">Database Developer </span>
+                                <span class="center">Database Administrator </span>
                                 {{--<i class="material-icons">flip_to_back</i>--}}
                             </div>
                         </div>
@@ -182,17 +189,20 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h5 class="header col s12 center white-text">A modern responsive front-end framework based on Material
-                        Design</h5>
+                    <h2 class="header col s12 right white-text" style="background: rgba(0, 0, 0, 0.7);">
+                        A modern way to automation of car access to your property.
+                    </h2>
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="{{asset('/images/background2.jpg')}}" alt="Unsplashed background img 2"></div>
+        <div class="parallax"><img src="{{asset('/images/alpr1.jpg')}}" alt="Unsplashed background img 2"></div>
     </div>
 
     <div class="container">
         <div class="section">
-
+            <div class="row center">
+                <h4><b>Features</b></h4>
+            </div>
             <div class="row">
                 <div class="col s12 m6 center">
                     <h6><b>Web Dashboard</b></h6>
@@ -251,8 +261,9 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h5 class="header col s12 light">A modern responsive front-end framework based on Material
-                        Design</h5>
+                    <h2 class="header col s12 right white-text" style="background: rgba(0, 0, 0, 0.7);">
+                        A modern way to automation of car access to your property.
+                    </h2>
                 </div>
             </div>
         </div>
@@ -264,9 +275,12 @@
             <div class="row">
                 <div class="col s12 center">
                     <h5 class="">Project Description</h5>
-                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like
-                        it's our full time job. Any amount would help support and continue development on this project
-                        and is greatly appreciated.</p>
+                    <p class="grey-text text-lighten-4">
+                        Our project is taking car management system of properties with parking to the whole new level,
+                        with detecting places of the car plates with the help of Haar cascade and
+                        recognizing those characters by making use of Tesseract,
+                        which triggers background process to check existing database and make decision on car entrance.
+                    </p>
                 </div>
             </div>
         </div>
