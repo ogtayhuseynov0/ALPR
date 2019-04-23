@@ -21,14 +21,23 @@
                                 $('#load').toggleClass('hide');
                                 $('#run').toggleClass('hide');
                                 res.innerHTML='';
+                                car = '';
                                 var photo = $('.photo_name');
                                 // var res = document.getElementById('res');
                                 // console.log('ss','/run/'+photo.attr('id'))
                                 $.get('/run/'+photo.attr('id'), function(data, status){
                                     console.log(JSON.parse(data)['licence_plate']);
+                                    // car=JSON.parse(data)['licence_plate'];
                                     fdata= fdata + data +'<br/>';
                                     $.get('/api/checkw/'+JSON.parse(data)['licence_plate'], function(data, status){
-                                        console.log(data['allowed']);
+                                        // console.log(data['allowed']);
+                                        if(data['allowed']){
+                                            var obj2 = new Object();
+                                            obj2.log_info = car + ' Enter';
+                                            var jsonString= JSON.stringify(obj2);
+                                        $.post('/api/log', obj2,function(data, status){
+                                         });
+                                        }
                                         fdata= fdata +JSON.stringify(data);
                                         res.innerHTML=fdata;
                                      $('#load').toggleClass('hide');

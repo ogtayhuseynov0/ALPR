@@ -89,7 +89,7 @@ if m:
     #            fontColor,
     #            lineType)
     datasend["licence_plate"] = text
-    r2 = requests.post(url="http://lp.com/api/log", data={'log_info': text + ' Enter'})
+    #r2 = requests.post(url="http://lp.com/api/log", data={'log_info': text + ' Enter'})
     #print(text)
    # r = requests.get(url='http://lp.com/api/car/' + text)
    # responses = r.json()
