@@ -62,6 +62,11 @@
                     {!! $chart->container() !!}
                 @endisset
             </div>
+            <div class="row center">
+                @isset($chart2)
+                    {!! $chart2->container() !!}
+                @endisset
+            </div>
         @endif
         @if(request()->segment(count(request()->segments()))=="car")
             <div class="row">
@@ -388,5 +393,6 @@ window.location.href='/whitelist/'+this.id;
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>--}}
     @isset($chart)
     {!! $chart->script() !!}
+    {!! $chart2->script() !!}
     @endisset
 @endsection

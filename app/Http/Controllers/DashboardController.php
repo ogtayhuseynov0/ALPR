@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use App\CarPermission;
+use App\Charts\CarLogChart;
 use App\Log;
 use App\Photo;
 use App\UserPermission;
@@ -72,7 +73,9 @@ class DashboardController extends Controller
     {
         $datas = collect([]); // Could also be an array
         $dates = collect([]); // Could also be an array
-
+        $lps=DB::table('logs')->select(DB::raw('DISTINCT SUBSTRING(log_info, 1,10) as a'))->orderBy('id', 'desc')->get()->pluck('a');
+        $lp_counts=DB::table('logs')->select(DB::raw('COUNT(log_info) as a'))
+            ->groupBy(DB::raw('SUBSTRING(log_info, 1,10)'))->orderBy('id', 'desc')->get()->pluck('a');
         for ($days_backwards = 5; $days_backwards >= 0; $days_backwards--) {
             // Could also be an array_push if using an array rather than a collection.
             $datas->push(Log::whereDate('created_at', today()->subDays($days_backwards))->count());
@@ -81,13 +84,19 @@ class DashboardController extends Controller
         $chart= new LogChart;
         $chart->labels($dates);
         $chart->dataset('Log Count', "line", $datas)->color("black")->backgroundColor("#0165B4");
+//        dd($dates);
+        $chart2= new CarLogChart;
+        $chart2->labels($lps);
+        $chart2->loaderColor("#0165B4");
+        $chart2->dataset('Car Log Count', "line", $lp_counts)->color("black")->backgroundColor("red");
+
         $query = Input::get('query');
         if ($query == null) {
             $logs = Log::orderBy('id', 'DESC')->paginate(5);
-            return view('dashboard.v2', compact('logs','chart'));
+            return view('dashboard.v2', compact('logs','chart','chart2'));
         } else {
             $logs = Log::orderBy('id', 'DESC')->where('log_info', 'LIKE', '%' . $query . '%')->paginate(5);
-            return view('dashboard.v2', compact('logs','chart'));
+            return view('dashboard.v2', compact('logs','chart','chart2'));
         }
     }
 
