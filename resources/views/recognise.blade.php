@@ -34,7 +34,7 @@
                                         if(data['allowed']){
                                             var obj2 = new Object();
                                             obj2.log_info = car + ' Enter';
-                                            var jsonString= JSON.stringify(obj2);
+                                            // var jsonString= JSON.stringify(obj2);
                                         $.post('/api/log', obj2,function(data, status){
                                          });
                                         }
