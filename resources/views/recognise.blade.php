@@ -27,7 +27,7 @@
                                 // console.log('ss','/run/'+photo.attr('id'))
                                 $.get('/run/'+photo.attr('id'), function(data, status){
                                     console.log(JSON.parse(data)['licence_plate']);
-                                    // car=JSON.parse(data)['licence_plate'];
+                                    car=JSON.parse(data)['licence_plate'];
                                     fdata= fdata + data +'<br/>';
                                     $.get('/api/checkw/'+JSON.parse(data)['licence_plate'], function(data, status){
                                         // console.log(data['allowed']);
