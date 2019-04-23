@@ -64,20 +64,23 @@ class DashboardController extends Controller
         }
     }
 
+    /**
+     * @param null $query
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function log($query = null)
     {
-        $loggo = DB::table('logs')
-            ->select(DB::raw('COUNT(id), CONCAT(DAY(created_at),\'-\',MONTH(created_at))as time'))
-            ->groupBy(DB::raw('DAY(created_at)'))
-            ->get()->map(function ($item) {
-                // Return the number of persons with that age
-                return count($item);
-            });;
-        $yesterday_users = Log::whereDate('created_at', today()->subDays(1))->count();
-        $users_2_days_ago = Log::whereDate('created_at', today()->subDays(2))->count();
+        $datas = collect([]); // Could also be an array
+        $dates = collect([]); // Could also be an array
+
+        for ($days_backwards = 5; $days_backwards >= 0; $days_backwards--) {
+            // Could also be an array_push if using an array rather than a collection.
+            $datas->push(Log::whereDate('created_at', today()->subDays($days_backwards))->count());
+            $dates->push(today()->subDays($days_backwards)->format('m-d'));
+        }
         $chart= new LogChart;
-        $chart->labels($loggo->keys());
-        $chart->dataset('Enter Count', 'line', $loggo->keys());
+        $chart->labels($dates);
+        $chart->dataset('Last 5 days log statistics', 'line',$datas);
         $query = Input::get('query');
         if ($query == null) {
             $logs = Log::orderBy('id', 'DESC')->paginate(5);
