@@ -208,6 +208,40 @@
                         the full log of any vehicle that entered to your property. </h5>
                 </div>
             </div>
+            <div class="row">
+                <div class="col s12 m6 center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h5 class="center-align " style="text-align: center; vertical-align: middle;">
+                        <b class="blue-text">Statistical Information</b>
+                        provided with understandable graphs and charts.
+                    </h5>
+                </div>
+                <div class="col s12 m6 center">
+                    <h6><b>Statistic</b></h6>
+                    <img src="{{asset('/images/LOG.png')}}" alt="Unsplashed background img 2"
+                         width="450" style="border: 1px solid grey;border-radius: 4px">
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col s12 m6 center">
+                    <h6><b>Car Licence Plate Recognition</b></h6>
+                    <img src="{{asset('/images/rename.png')}}" alt="Unsplashed background img 2"
+                         width="450" style="border: 1px solid grey;border-radius: 4px">
+                </div>
+                <div class="col s12 m6 center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h5 class="center-align " style="text-align: center; vertical-align: middle;">
+                        Car Licence Plate<b class="blue-text"> Recognition</b> and <b class="blue-text"> Access Check</b>
+                        through web interface.
+                    </h5>
+                </div>
+
+            </div>
 
         </div>
     </div>
@@ -229,7 +263,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12 center">
-                    <h5 class="">Company Bio</h5>
+                    <h5 class="">Project Description</h5>
                     <p class="grey-text text-lighten-4">We are a team of college students working on this project like
                         it's our full time job. Any amount would help support and continue development on this project
                         and is greatly appreciated.</p>
