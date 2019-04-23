@@ -80,7 +80,7 @@ class DashboardController extends Controller
         }
         $chart= new LogChart;
         $chart->labels($dates);
-        $chart->dataset('Last 5 days log statistics', "line",$datas)->color("black")->backgroundColor("#0165B4");
+        $chart->dataset('Log Count', "line", $datas)->color("black")->backgroundColor("#0165B4");
         $query = Input::get('query');
         if ($query == null) {
             $logs = Log::orderBy('id', 'DESC')->paginate(5);
