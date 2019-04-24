@@ -44,7 +44,7 @@
             <li class=""><a href="/">Home</a></li>
             @auth
                 <li class="{{request()->segment(count(request()->segments())-1)=="user" ? "activem": ""}}"><a href="/user/{{\Illuminate\Support\Facades\Auth::id()}}">Profile</a></li>
-            @if(\Illuminate\Support\Facades\Auth::id()==21)
+            @if(\Illuminate\Support\Facades\Auth::id()==29)
                 <li class="{{request()->segment(count(request()->segments())-1)=="dashboard" ? "activem": ""}}"><a href="/dashboard">Dashboard</a></li>
             @endif
             <li><a href="/logout">Logout</a></li>
@@ -56,7 +56,7 @@
             <li class=""><a href="/">Home</a></li>
             @auth
             <li class="{{request()->segment(count(request()->segments())-1)=="user" ? "activem": ""}}"><a href="/user/{{\Illuminate\Support\Facades\Auth::id()}}">Profile</a></li>
-            @if(\Illuminate\Support\Facades\Auth::id()==21)
+            @if(\Illuminate\Support\Facades\Auth::id()==29)
                 <li class="{{request()->segment(count(request()->segments())-1)=="dashboard" ? "activem": ""}}"><a href="/dashboard">Dashboard</a></li>
             @endif
             <li><a href="/logout">Logout</a></li>

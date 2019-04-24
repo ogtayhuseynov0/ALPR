@@ -54,7 +54,7 @@
                     @auth
                         <li class="{{request()->segment(count(request()->segments())-1)=="user" ? "activem": ""}}"><a
                                     href="/user/{{\Illuminate\Support\Facades\Auth::id()}}">Profile</a></li>
-                        @if(\Illuminate\Support\Facades\Auth::id()==21)
+                        @if(\Illuminate\Support\Facades\Auth::id()==29)
                             <li class="{{request()->segment(count(request()->segments())-1)=="dashboard" ? "activem": ""}}">
                                 <a href="/dashboard">Dashboard</a></li>
                         @endif
@@ -70,7 +70,7 @@
                     @auth
                         <li class="{{request()->segment(count(request()->segments())-1)=="user" ? "activem": ""}}"><a
                                     href="/user/{{\Illuminate\Support\Facades\Auth::id()}}">Profile</a></li>
-                        @if(\Illuminate\Support\Facades\Auth::id()==21)
+                        @if(\Illuminate\Support\Facades\Auth::id()==29)
                             <li class="{{request()->segment(count(request()->segments())-1)=="dashboard" ? "activem": ""}}">
                                 <a href="/dashboard">Dashboard</a></li>
                         @endif
@@ -102,7 +102,7 @@
             </div>
             @guest
                 <div class="row center">
-                    <a href="" class="btn-large waves-effect waves-light">Register</a>
+                    <a href="/register" class="btn-large waves-effect waves-light">Register</a>
                 </div>
             @endguest
             <br><br>
@@ -170,7 +170,7 @@
                     <div class="card-content ">
                         <div class="icon-block">
                             <div class="background center ">
-                                <img src="{{asset('/images/dvd.jpg')}}" class="circle rounded">
+                                <img src="{{asset('/images/darvud.jpg')}}" class="circle rounded">
                                 <h6 class="name"><b>Davud Ismayilov</b></h6>
                                 {{--<h4 class="center "><i class="material-icons">flip_to_back</i></h4>--}}
                                 <span class="center">Database Administrator </span>

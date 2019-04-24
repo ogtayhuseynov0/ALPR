@@ -15,7 +15,7 @@ class MAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::id()!=21) {
+        if (Auth::id()!=29) {
 //            dd("asd");
             return redirect('/user/'.Auth::id());
         }

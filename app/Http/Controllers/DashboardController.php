@@ -20,7 +20,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        if (Auth::id() == 21) {
+        if (Auth::id() == 29) {
             return redirect("/dashboard/car");
         } else {
             return redirect("/user/" . Auth::id());
